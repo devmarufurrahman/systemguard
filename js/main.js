@@ -153,12 +153,39 @@ const imgObserver = new IntersectionObserver(loadImg, {
 
 imgTargets.forEach((img) => imgObserver.observe(img));
 
-//! SLider
+//! SLider ==============================================================
 let currentSlide = 0;
 const maxSlide = slides.length - 1;
 
+// Dots-----------------------------------------------------
+function creatingDots() {
+	slides.forEach((_, i) => {
+		const dot = `<button class="dots__dot" data-slide="${i}></button>`;
+		dotContainer.insertAdjacentHTML("beforeend", dot);
+	});
+}
+
+creatingDots();
+
+// Changing slide ----------------------------------------
+function changeSlide(cs) {
+	slides.forEach(
+		(sl, i) => (sl.style.transform = `translateX(${100 * (i - cs)}%)`),
+	);
+}
+
+changeSlide(0);
+
 function previousSlide() {
-	console.log("a");
+	if (currentSlide === 0) currentSlide = maxSlide;
+	else currentSlide--;
+	changeSlide(currentSlide);
+}
+
+function nextSlide() {
+	if (currentSlide === maxSlide) currentSlide = 0;
+	else currentSlide++;
+	changeSlide(currentSlide);
 }
 
 // button handle
