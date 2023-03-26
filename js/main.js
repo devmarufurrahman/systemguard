@@ -219,3 +219,9 @@ document.addEventListener("keydown", function (e) {
 	e.key === "ArrowLeft" && previousSlide();
 	e.key === "ArrowRight" && nextSlide();
 });
+
+//! tab component
+
+tabsContainer.addEventListener("click", function (e) {
+	console.log(e.target);
+});
