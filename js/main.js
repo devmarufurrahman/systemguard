@@ -223,5 +223,5 @@ document.addEventListener("keydown", function (e) {
 //! tab component
 
 tabsContainer.addEventListener("click", function (e) {
-	console.log(e.target);
+	const btn = e.target.closest(".operations__tab");
 });
